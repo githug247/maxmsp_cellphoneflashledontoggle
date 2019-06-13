@@ -1,0 +1,53 @@
+#N canvas 736 133 416 464 10;
+#X obj 174 232 tgl 37 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X msg 174 418 list /flash \$1;
+#X obj 174 441 send toSystem;
+#X obj 232 355 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 174 389 *;
+#X obj 232 262 receive fromGUI;
+#X obj 232 284 list trim;
+#X obj 232 306 route /onoff;
+#X obj 21 272 receive fromSystem;
+#X obj 21 318 route /ipAddress;
+#X obj 21 241 send toSystem;
+#X obj 21 110 loadbang;
+#X obj 21 132 delay 100;
+#X obj 21 296 list trim;
+#X msg 21 217 list /getIpAddress;
+#X obj 174 186 route /flash;
+#X obj 21 379 list prepend /IPinfo;
+#X obj 21 440 send toGUI;
+#X obj 29 193 sel 1;
+#X obj 174 110 receive fromNetwork;
+#X obj 174 164 list trim;
+#X obj 232 328 t f f;
+#X text 132 71 MaxMSP \, Pd 2 MobMuPlat;
+#X text 33 339 example IP;
+#X text 14 23 cellphone flash LED on toggle \, CC BY-SA Martin Hachmann
+05_2019 \, http://247bum.com/, f 64;
+#X msg 33 356 192.168.0.1;
+#X text 181 130 MobMuPlat's default UDP input port is 54322, f 24
+;
+#X connect 0 0 4 0;
+#X connect 1 0 2 0;
+#X connect 3 0 4 1;
+#X connect 4 0 1 0;
+#X connect 5 0 6 0;
+#X connect 6 0 7 0;
+#X connect 7 0 21 0;
+#X connect 8 0 13 0;
+#X connect 9 0 16 0;
+#X connect 11 0 12 0;
+#X connect 12 0 14 0;
+#X connect 13 0 9 0;
+#X connect 14 0 10 0;
+#X connect 15 0 0 0;
+#X connect 16 0 17 0;
+#X connect 18 0 14 0;
+#X connect 19 0 20 0;
+#X connect 20 0 15 0;
+#X connect 21 0 18 0;
+#X connect 21 1 3 0;
+#X connect 25 0 16 0;
